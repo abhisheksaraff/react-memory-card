@@ -1,17 +1,55 @@
 {
-  "1": {
-    "1": { "Picture": "Picture 1 Level 1", "Name": "Name 1 Level 1" },
-    "2": { "Picture": "Picture 2 Level 1", "Name": "Name 2 Level 1" }
-  },
-  "2": {
-    "1": { "Picture": "Picture 1 Level 2", "Name": "Name 1 Level 2" },
-    "2": { "Picture": "Picture 2 Level 2", "Name": "Name 2 Level 2" },
-    "3": { "Picture": "Picture 3 Level 2", "Name": "Name 3 Level 2" }
-  },
-  "3": {
-    "1": { "Picture": "Picture 1 Level 3", "Name": "Name 1 Level 3" },
-    "2": { "Picture": "Picture 2 Level 3", "Name": "Name 2 Level 3" },
-    "3": { "Picture": "Picture 3 Level 2", "Name": "Name 3 Level 3" },
-    "4": { "Picture": "Picture 4 Level 3", "Name": "Name 4 Level 3" }
-  }
+  "data": [
+    [
+      {
+        "Picture": "Picture 1 Level 1",
+        "Name": "Name 1 Level 1",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 2 Level 1",
+        "Name": "Name 2 Level 1",
+        "hasBeenSelected": false
+      }
+    ],
+    [
+      {
+        "Picture": "Picture 1 Level 2",
+        "Name": "Name 1 Level 2",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 2 Level 2",
+        "Name": "Name 2 Level 2",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 3 Level 2",
+        "Name": "Name 3 Level 2",
+        "hasBeenSelected": false
+      }
+    ],
+    [
+      {
+        "Picture": "Picture 1 Level 3",
+        "Name": "Name 1 Level 3",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 2 Level 3",
+        "Name": "Name 2 Level 3",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 3 Level 2",
+        "Name": "Name 3 Level 3",
+        "hasBeenSelected": false
+      },
+      {
+        "Picture": "Picture 4 Level 3",
+        "Name": "Name 4 Level 3",
+        "hasBeenSelected": false
+      }
+    ]
+  ]
 }
