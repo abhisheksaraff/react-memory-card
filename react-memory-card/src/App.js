@@ -51,28 +51,40 @@ const App = () => {
   };
 
   const upUpDownDown = (event) => {
-    //let name = event.key;
+    let name = event.key;
     let code = event.code;
 
-    //if the current code hasn't completed the konami code but hasn't had a mistake yet either
+    console.log("hi");
+
     if (keyUpCount < konamiCode.data.length - 1) {
-      //if the next keyup is the right key for konami code, continue waiting for next key
+      //if the current code hasn't completed the konami code but hasn't had a mistake yet either
       if (konamiCode.data[keyUpCount] === code) {
+        console.log("hello");
+        //if the next keyup is the right key for konami code, continue waiting for next key
         setKeyUpCount(keyUpCount + 1);
         //keyUpCount++;
-      //if the next keyup is the wrong key for konami code, start over
       } else {
+        //if the next keyup is the wrong key for konami code, start over
         setKeyUpCount(0);
+        console.log("bye");
         //keyUpCount = 0;
       }
-    //if the current code is equal to the konami code
     } else {
-      //setKeyUpCount(0);
+      //if the current code is equal to the konami code
+      setKeyUpCount(0);
       //keyUpCount = 0;
       incrementTotalLives();
       document.removeEventListener("keyup", upUpDownDown);
     }
-    console.log(keyUpCount + " " + codeIsActivated);
+    console.log(
+      code +
+        " " +
+        keyUpCount +
+        " " +
+        konamiCode.data[keyUpCount] +
+        " " +
+        codeIsActivated
+    );
   };
 
   const incrementTotalLives = () => {
@@ -83,7 +95,36 @@ const App = () => {
     }
   };
 
-  /*
+  useEffect(() => {
+    /*
+    window.addEventListener("keyup", (event) => {
+      upUpDownDown(event);
+    });
+    */
+  }, []);
+
+  return (
+    <div>
+      <Header
+        currentScore={currentScore}
+        bestScore={bestScore}
+        codeIsActivated={codeIsActivated}
+        totalLives={totalLives}
+      />
+      <Body
+        currentCards={currentCards}
+        incrementCurrentScore={incrementCurrentScore}
+        incrementLevel={incrementLevel}
+        madeAMistake={madeAMistake}
+      />
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
+
+/*
   // Add event listener on keyup
   document.addEventListener(
     "keyup",
@@ -109,27 +150,3 @@ const App = () => {
     false
   );
 */
-
-  useEffect(() => {
-    document.addEventListener("keyup", (event) => upUpDownDown);
-  }, []);
-
-  return (
-    <div>
-      <Header
-        currentScore={currentScore}
-        bestScore={bestScore}
-        totalLives={totalLives}
-      />
-      <Body
-        currentCards={currentCards}
-        incrementCurrentScore={incrementCurrentScore}
-        incrementLevel={incrementLevel}
-        madeAMistake={madeAMistake}
-      />
-      <Footer />
-    </div>
-  );
-};
-
-export default App;

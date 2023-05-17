@@ -2,52 +2,52 @@
   "data": [
     [
       {
-        "Picture": "Picture 1 Level 1",
-        "Name": "Name 1 Level 1",
+        "picture": "Picture 1 Level 1",
+        "name": "Name 1 Level 1",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 2 Level 1",
-        "Name": "Name 2 Level 1",
+        "picture": "Picture 2 Level 1",
+        "name": "Name 2 Level 1",
         "hasBeenSelected": false
       }
     ],
     [
       {
-        "Picture": "Picture 1 Level 2",
+        "picture": "Picture 1 Level 2",
         "Name": "Name 1 Level 2",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 2 Level 2",
-        "Name": "Name 2 Level 2",
+        "picture": "Picture 2 Level 2",
+        "name": "Name 2 Level 2",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 3 Level 2",
-        "Name": "Name 3 Level 2",
+        "picture": "Picture 3 Level 2",
+        "name": "Name 3 Level 2",
         "hasBeenSelected": false
       }
     ],
     [
       {
-        "Picture": "Picture 1 Level 3",
-        "Name": "Name 1 Level 3",
+        "picture": "Picture 1 Level 3",
+        "name": "Name 1 Level 3",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 2 Level 3",
+        "picture": "Picture 2 Level 3",
         "Name": "Name 2 Level 3",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 3 Level 2",
-        "Name": "Name 3 Level 3",
+        "picture": "Picture 3 Level 2",
+        "name": "Name 3 Level 3",
         "hasBeenSelected": false
       },
       {
-        "Picture": "Picture 4 Level 3",
-        "Name": "Name 4 Level 3",
+        "picture": "Picture 4 Level 3",
+        "name": "Name 4 Level 3",
         "hasBeenSelected": false
       }
     ]
