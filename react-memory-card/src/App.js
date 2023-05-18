@@ -95,24 +95,26 @@ const App = () => {
     }
   };
 
+  /*
   useEffect(() => {
-    /*
     window.addEventListener("keyup", (event) => {
       upUpDownDown(event);
     });
-    */
   }, []);
+  */
 
   return (
     <div>
       <Header
         currentScore={currentScore}
+        currentLevel={currentLevel}
         bestScore={bestScore}
         codeIsActivated={codeIsActivated}
         totalLives={totalLives}
       />
       <Body
         currentCards={currentCards}
+        setCurrentCards={setCurrentCards}
         incrementCurrentScore={incrementCurrentScore}
         incrementLevel={incrementLevel}
         madeAMistake={madeAMistake}

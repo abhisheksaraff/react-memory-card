@@ -1,8 +1,8 @@
 import React from "react";
 
-const Card = ({ picture, name, hasBeenSelected, updateHasBeenSelected }) => {
+const Card = ({ picture, name, hasBeenSelected, updateHasBeenClicked }) => {
   return (
-    <div onClick={() => updateHasBeenSelected(name)}>
+    <div onClick={() => updateHasBeenClicked(name)}>
       <div>{picture}</div>
       <div>{name}</div>
       <div>{hasBeenSelected + ""}</div>

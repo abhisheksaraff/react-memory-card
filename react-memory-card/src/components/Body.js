@@ -4,61 +4,80 @@ import Card from "./Card";
 
 const Body = ({
   currentCards,
+  setCurrentCards,
   incrementCurrentScore,
   incrementLevel,
   madeAMistake,
 }) => {
-  const [cardsDisplay, setCardsDisplay] = useState(currentCards);
 
-  const shuffle = () => {
+  const shuffle = (cards) => {
     //shuffle currentCards
     let newOrder = [],
       shuffledCards = []; //contains the order in which currentCards will be shuffled
 
-    //this will run until newOrder has a position for each element of currentCards that will later be stored in cardsDisplay
-    while (newOrder.length !== currentCards.length) {
-      let tempPosition = Math.floor(Math.random() * cardsDisplay.length); //Generate a temp number between 0 and length of cards - 1
+    //this will run until newOrder has a position for each element of currentCards that will later be stored in currentCards
+    while (newOrder.length !== cards.length) {
+      let tempPosition = Math.floor(Math.random() * cards.length); //Generate a temp number between 0 and length of cards - 1
 
       if (!newOrder.includes(tempPosition)) newOrder.push(tempPosition);
     }
 
     //arrange shuffledCards according to newOrder
-    for (let i = 0; i < currentCards.length; i++) {
-      shuffledCards.push(currentCards[newOrder[i]]);
+    for (let i = 0; i < cards.length; i++) {
+      shuffledCards.push(cards[newOrder[i]]);
     }
 
-    setCardsDisplay(shuffledCards);
+    return shuffledCards;
   };
 
-  const updateHasBeenSelected = (cardId) => {
-    let tempCardsDisplay = [];
+  const updateHasBeenClicked = (cardId) => {
+    let tempCurrentCards = [];
+    let hasMadeAMistake = false;
 
-    cardsDisplay.forEach((card) => {
+    currentCards.forEach((card) => {
       if (card.name === cardId) {
-        tempCardsDisplay.push({
-          picture: card.picture,
-          name: card.name,
-          hasBeenSelected: true,
-        });
-      } else tempCardsDisplay.push(card);
+        if (card.hasBeenSelected === false) {
+          //cards hasn't been clicked before
+          incrementCurrentScore();
+          tempCurrentCards.push({
+            picture: card.picture,
+            name: card.name,
+            hasBeenSelected: true,
+          });
+        } else {
+          //cards has been clicked before
+          hasMadeAMistake = true;
+        }
+      } else tempCurrentCards.push(card); //untouched card
     });
 
-    setCardsDisplay(tempCardsDisplay);
+    if (!hasMadeAMistake) {
+      let selectedCardsCount = 0;
+      tempCurrentCards.forEach((card) => {
+        if(card.hasBeenSelected) selectedCardsCount++;
+      })
+
+      if (selectedCardsCount === currentCards.length) {
+        //every cards has been selected
+        incrementLevel();
+      } else {
+        //not all cards have been selected
+        setCurrentCards(shuffle(tempCurrentCards));
+      }
+    } else madeAMistake();
   };
 
   return (
     <>
-      <button onClick={incrementCurrentScore}>+</button>
-      <button onClick={madeAMistake}>-</button>
       <ul>
-        {cardsDisplay.map((card) => {
+        {currentCards.map((card) => {
           return (
             <li key={card.name}>
               <Card
                 picture={card.picture}
                 name={card.name}
                 hasBeenSelected={card.hasBeenSelected}
-                updateHasBeenSelected={updateHasBeenSelected}
+                updateHasBeenClicked={updateHasBeenClicked}
               />
             </li>
           );
