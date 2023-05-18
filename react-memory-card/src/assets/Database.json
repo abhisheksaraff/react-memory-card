@@ -15,7 +15,7 @@
     [
       {
         "picture": "Picture 1 Level 2",
-        "Name": "Name 1 Level 2",
+        "name": "Name 1 Level 2",
         "hasBeenSelected": false
       },
       {
@@ -37,7 +37,7 @@
       },
       {
         "picture": "Picture 2 Level 3",
-        "Name": "Name 2 Level 3",
+        "name": "Name 2 Level 3",
         "hasBeenSelected": false
       },
       {

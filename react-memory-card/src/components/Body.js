@@ -30,7 +30,21 @@ const Body = ({
     setCardsDisplay(shuffledCards);
   };
 
-  //shuffle();
+  const updateHasBeenSelected = (cardId) => {
+    let tempCardsDisplay = [];
+
+    cardsDisplay.forEach((card) => {
+      if (card.name === cardId) {
+        tempCardsDisplay.push({
+          picture: card.picture,
+          name: card.name,
+          hasBeenSelected: true,
+        });
+      } else tempCardsDisplay.push(card);
+    });
+
+    setCardsDisplay(tempCardsDisplay);
+  };
 
   return (
     <>
@@ -38,7 +52,16 @@ const Body = ({
       <button onClick={madeAMistake}>-</button>
       <ul>
         {cardsDisplay.map((card) => {
-          return <li key={card.name}><Card picture={card.picture} name={card.name} hasBeenSelected={card.hasBeenSelected} /></li>;
+          return (
+            <li key={card.name}>
+              <Card
+                picture={card.picture}
+                name={card.name}
+                hasBeenSelected={card.hasBeenSelected}
+                updateHasBeenSelected={updateHasBeenSelected}
+              />
+            </li>
+          );
         })}
       </ul>
     </>
