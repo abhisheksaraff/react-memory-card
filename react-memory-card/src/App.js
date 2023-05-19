@@ -59,27 +59,27 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    const upUpDownDown = (event) => {
-      if (!codeIsActivated) {
-        let code = event.code;
+  const upUpDownDown = (event) => {
+    if (!codeIsActivated) {
+      let code = event.code;
 
-        //if the current code hasn't completed the konami code but hasn't had a mistake yet either
-        if (keyUpCount < konamiCode.data.length - 1) {
-          //if the next keyup is the right key for konami code, continue waiting for next key
-          if (konamiCode.data[keyUpCount] === code) {
-            setKeyUpCount(keyUpCount + 1);
-          } //if the next keyup is the wrong key for konami code, start over
-          else {
-            setKeyUpCount(0);
-          } //if the current code is equal to the konami code
-        } else {
+      //if the current code hasn't completed the konami code but hasn't had a mistake yet either
+      if (keyUpCount < konamiCode.data.length - 1) {
+        //if the next keyup is the right key for konami code, continue waiting for next key
+        if (konamiCode.data[keyUpCount] === code) {
+          setKeyUpCount(keyUpCount + 1);
+        } //if the next keyup is the wrong key for konami code, start over
+        else {
           setKeyUpCount(0);
-          incrementTotalLives();
-        }
+        } //if the current code is equal to the konami code
+      } else {
+        setKeyUpCount(0);
+        incrementTotalLives();
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     window.addEventListener("keyup", upUpDownDown);
 
     return () => {
