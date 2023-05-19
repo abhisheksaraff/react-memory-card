@@ -109,30 +109,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-  // Add event listener on keyup
-  document.addEventListener(
-    "keyup",
-    (event) => {
-      //let name = event.key;
-      let code = event.code;
-
-      if (keyUpCount < konamiCode.data.length - 1) {
-        if (konamiCode.data[keyUpCount] === code) {
-          setKeyUpCount(keyUpCount + 1);
-          //keyUpCount++;
-        } else {
-          setKeyUpCount(0);
-          //keyUpCount = 0;
-        }
-      } else {
-        //setKeyUpCount(0);
-        //keyUpCount = 0;
-        incrementTotalLives();
-      }
-      console.log(keyUpCount + " " + codeIsActivated);
-    },
-    false
-  );
-*/
