@@ -44,64 +44,48 @@ const App = () => {
   const initializeGame = () => {
     console.log(`You Lost at Score: ${currentScore}`);
 
-    //set current Score to 0, set Level to 1, set current Cards to Level 1
+    //set current Score to 0, set Level to 1, set current Cards to Level 1, deactivate code, set lives to 1
     setCurrentScore(0);
     setLevel(1);
     setCurrentCards(database.data[0]);
-  };
-
-  const upUpDownDown = (event) => {
-    let name = event.key;
-    let code = event.code;
-
-    console.log("hi");
-
-    if (keyUpCount < konamiCode.data.length - 1) {
-      //if the current code hasn't completed the konami code but hasn't had a mistake yet either
-      if (konamiCode.data[keyUpCount] === code) {
-        console.log("hello");
-        //if the next keyup is the right key for konami code, continue waiting for next key
-        setKeyUpCount(keyUpCount + 1);
-        //keyUpCount++;
-      } else {
-        //if the next keyup is the wrong key for konami code, start over
-        setKeyUpCount(0);
-        console.log("bye");
-        //keyUpCount = 0;
-      }
-    } else {
-      //if the current code is equal to the konami code
-      setKeyUpCount(0);
-      //keyUpCount = 0;
-      incrementTotalLives();
-      document.removeEventListener("keyup", upUpDownDown);
-    }
-    console.log(
-      code +
-        " " +
-        keyUpCount +
-        " " +
-        konamiCode.data[keyUpCount] +
-        " " +
-        codeIsActivated
-    );
+    setCodeIsActivated(false);
+    setTotalLives(1);
   };
 
   const incrementTotalLives = () => {
     if (!codeIsActivated) {
-      setTotalLives(30);
+      setTotalLives(3);
       setCodeIsActivated(true);
-      //codeIsActivated = true;
     }
   };
 
-  /*
   useEffect(() => {
-    window.addEventListener("keyup", (event) => {
-      upUpDownDown(event);
-    });
-  }, []);
-  */
+    const upUpDownDown = (event) => {
+      if (!codeIsActivated) {
+        let code = event.code;
+
+        //if the current code hasn't completed the konami code but hasn't had a mistake yet either
+        if (keyUpCount < konamiCode.data.length - 1) {
+          //if the next keyup is the right key for konami code, continue waiting for next key
+          if (konamiCode.data[keyUpCount] === code) {
+            setKeyUpCount(keyUpCount + 1);
+          } //if the next keyup is the wrong key for konami code, start over
+          else {
+            setKeyUpCount(0);
+          } //if the current code is equal to the konami code
+        } else {
+          setKeyUpCount(0);
+          incrementTotalLives();
+        }
+      }
+    };
+
+    window.addEventListener("keyup", upUpDownDown);
+
+    return () => {
+      window.removeEventListener("keyup", upUpDownDown);
+    };
+  });
 
   return (
     <div>

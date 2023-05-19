@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
 
@@ -9,7 +9,6 @@ const Body = ({
   incrementLevel,
   madeAMistake,
 }) => {
-
   const shuffle = (cards) => {
     //shuffle currentCards
     let newOrder = [],
@@ -47,6 +46,7 @@ const Body = ({
         } else {
           //cards has been clicked before
           hasMadeAMistake = true;
+          tempCurrentCards.push(card);
         }
       } else tempCurrentCards.push(card); //untouched card
     });
@@ -54,8 +54,8 @@ const Body = ({
     if (!hasMadeAMistake) {
       let selectedCardsCount = 0;
       tempCurrentCards.forEach((card) => {
-        if(card.hasBeenSelected) selectedCardsCount++;
-      })
+        if (card.hasBeenSelected) selectedCardsCount++;
+      });
 
       if (selectedCardsCount === currentCards.length) {
         //every cards has been selected
@@ -64,7 +64,10 @@ const Body = ({
         //not all cards have been selected
         setCurrentCards(shuffle(tempCurrentCards));
       }
-    } else madeAMistake();
+    } else {
+      setCurrentCards(shuffle(tempCurrentCards));
+      madeAMistake();
+    }
   };
 
   return (
