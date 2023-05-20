@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import Card from "./Card";
 
@@ -73,7 +73,7 @@ const Body = ({
   return (
     <>
       <ul>
-        {currentCards.map((card) => {
+        {(currentCards !== undefined) && currentCards.map((card) => {
           return (
             <li key={card.name}>
               <Card
