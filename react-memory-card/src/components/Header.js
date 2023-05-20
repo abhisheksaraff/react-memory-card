@@ -8,12 +8,12 @@ const Header = ({
   totalLives,
 }) => {
   return (
-    <nav class="header navbar fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand">Memory Card Game</a>
-      <span class="navbar-text">
-        Level: {currentLevel} | Current Score: {currentScore} | Best Score: {bestScore}
+    <nav className="header navbar fixed-top navbar-dark bg-dark">
+      <h1 className="navbar-brand">Memory Card Game</h1>
+      <span className="navbar-text">
+        Level {currentLevel} | Current Score: {currentScore} | Best Score: {bestScore}
         {codeIsActivated && (
-          <span class="navbar-text"> | Lives Left: {totalLives}</span>
+          <span className="navbar-text"> | Lives Left: {totalLives}</span>
         )}
       </span>
     </nav>

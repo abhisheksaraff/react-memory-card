@@ -7,13 +7,13 @@ const Body = ({
   currentCards,
   setCurrentCards,
   incrementCurrentScore,
+  currentLevel,
   incrementLevel,
   madeAMistake,
   showAlert,
   setShowAlert,
   codeIsActivated,
 }) => {
-
   const shuffle = (cards) => {
     //shuffle currentCards
     let newOrder = [],
@@ -77,16 +77,16 @@ const Body = ({
 
   return (
     <div className="body">
-      {showAlert && <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
-        <Alert.Heading>Oh snap... You lost!</Alert.Heading>
-        <p>
-          Try again.
-        </p>
-      </Alert>}
+      {showAlert && (
+        <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
+          <Alert.Heading>Oh snap... You lost!</Alert.Heading>
+          <p>Try again.</p>
+        </Alert>
+      )}
       <CardGroup>
         {currentCards.map((card) => {
           return (
-            <div key={card.name}>
+            <div class="cards-case" key={card.name}>
               <Cards
                 picture={card.picture}
                 name={card.name}
@@ -98,6 +98,17 @@ const Body = ({
           );
         })}
       </CardGroup>
+      {currentCards.length === 0 && (
+        <div className="loading">
+          <div
+            class="spinner-border m-5"
+            style={{ width: "8rem", height: "8rem"}}
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

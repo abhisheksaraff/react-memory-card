@@ -18,6 +18,7 @@ const Footer = () => {
             color="light"
             floating
             className="m-1"
+            target="blank"
             href="https://www.twitter.com/"
             role="button"
           >
@@ -29,6 +30,7 @@ const Footer = () => {
             color="light"
             floating
             className="m-1"
+            target="blank"
             href="https://www.linkedin.com/"
             role="button"
           >
@@ -40,7 +42,8 @@ const Footer = () => {
             color="light"
             floating
             className="m-1"
-            href="https://www.github.com/"
+            target="blank"
+            href="https://github.com/saraffabhishek/memory-card"
             role="button"
           >
             <MDBIcon fab icon="github" />
@@ -53,7 +56,7 @@ const Footer = () => {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         © 2023 Copyright:
-        <a className="text-white" href="https://www.theodinproject.com/">
+        <a target="blank" className="text-white" href="https://www.theodinproject.com/">
           TheOdinProject.com
         </a>
       </div>

@@ -42,8 +42,6 @@ const App = () => {
   };
 
   const restartGame = () => {
-    console.log(`You Lost at Score: ${currentScore}`);
-
     //set current Score to 0, set Level to 1, set current Cards to Level 1, deactivate code, set lives to 1
     setCurrentScore(0);
     setLevel(1);
@@ -90,7 +88,6 @@ const App = () => {
       try {
         let response = await fetch("https://picsum.photos/300/");
         let picture = await response.url;
-        console.log(await response);
         tempCards.push({
           picture: picture,
           name: i + "",
@@ -129,6 +126,7 @@ const App = () => {
           currentCards={currentCards}
           setCurrentCards={setCurrentCards}
           incrementCurrentScore={incrementCurrentScore}
+          currentLevel={currentLevel}
           incrementLevel={incrementLevel}
           madeAMistake={madeAMistake}
           showAlert={showAlert}
