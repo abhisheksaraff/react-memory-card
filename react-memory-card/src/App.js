@@ -21,7 +21,7 @@ const App = () => {
   };
 
   const incrementLevel = () => {
-    updateCardDeck(currentLevel + 1);
+    refreshCards(currentLevel + 1);
     setLevel(currentLevel + 1);
   };
 
@@ -43,7 +43,7 @@ const App = () => {
     //set current Score to 0, set Level to 1, set current Cards to Level 1, deactivate code, set lives to 1
     setCurrentScore(0);
     setLevel(1);
-    updateCardDeck(1);
+    refreshCards(1);
     setCodeIsActivated(false);
     setTotalLives(1);
   };
@@ -75,14 +75,18 @@ const App = () => {
     }
   };
 
-  const updateCardDeck = async (size) => {
+  const refreshCards = async (size) => {
     let tempCards = [];
-    for (let i = 0; i <= size; i++) {
+
+    //clears screen while loading new cards
+    setCurrentCards([]);
+
+    for (let i = 0; i < size*2; i++) {
       try {
         let response = await fetch("https://picsum.photos/100/");
-        let name = await response.url;
+        let picture = await response.url;
         tempCards.push({
-          picture: name,
+          picture: picture,
           name: i + "",
           hasBeenSelected: false,
         });
@@ -94,7 +98,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    updateCardDeck(1);
+    refreshCards(1);
   }, []);
 
   useEffect(() => {
