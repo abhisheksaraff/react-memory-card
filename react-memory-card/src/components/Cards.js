@@ -5,7 +5,7 @@ const Cards = ({ picture, name, hasBeenSelected, updateHasBeenClicked, codeIsAct
   return (
     <Card className="cards" onClick={() => updateHasBeenClicked(name)}>
       <Card.Img variant="top" src={picture} />
-      {codeIsActivated && <Card.Text>{hasBeenSelected + ""}</Card.Text>}
+      {/*codeIsActivated && <Card.Text>{hasBeenSelected + ""}</Card.Text>*/}
     </Card>
   );
 };

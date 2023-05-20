@@ -9,7 +9,7 @@ const Header = ({
 }) => {
   return (
     <nav className="header navbar fixed-top navbar-dark bg-dark">
-      <h1 className="navbar-brand">Memory Card Game</h1>
+      <h1 className="navbar-brand">Infinite Memory Card</h1>
       <span className="navbar-text">
         Level {currentLevel} | Current Score: {currentScore} | Best Score: {bestScore}
         {codeIsActivated && (

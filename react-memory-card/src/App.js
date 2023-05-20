@@ -84,7 +84,7 @@ const App = () => {
     //clears screen while loading new cards
     setCurrentCards([]);
 
-    for (let i = 0; i < size * 2; i++) {
+    for (let i = 0; i < size*2; i++) {
       try {
         let response = await fetch("https://picsum.photos/300/");
         let picture = await response.url;
@@ -126,7 +126,6 @@ const App = () => {
           currentCards={currentCards}
           setCurrentCards={setCurrentCards}
           incrementCurrentScore={incrementCurrentScore}
-          currentLevel={currentLevel}
           incrementLevel={incrementLevel}
           madeAMistake={madeAMistake}
           showAlert={showAlert}

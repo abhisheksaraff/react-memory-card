@@ -7,7 +7,6 @@ const Body = ({
   currentCards,
   setCurrentCards,
   incrementCurrentScore,
-  currentLevel,
   incrementLevel,
   madeAMistake,
   showAlert,
@@ -79,8 +78,8 @@ const Body = ({
     <div className="body">
       {showAlert && (
         <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
-          <Alert.Heading>Oh snap... You lost!</Alert.Heading>
-          <p>Try again.</p>
+          <Alert.Heading>Oh snap, You lost!</Alert.Heading>
+          <p>Try again...</p>
         </Alert>
       )}
       <CardGroup>
@@ -105,7 +104,6 @@ const Body = ({
             style={{ width: "8rem", height: "8rem"}}
             role="status"
           >
-            <span class="sr-only">Loading...</span>
           </div>
         </div>
       )}
