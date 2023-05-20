@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer = () => {
   return (
-    <MDBFooter className="bg-dark text-center text-white">
+    <MDBFooter className="footer bg-dark text-center text-white">
       <MDBContainer className="p-4 pb-0">
         <section className="mb-4">
           <MDBBtn

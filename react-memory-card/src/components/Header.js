@@ -8,7 +8,7 @@ const Header = ({
   totalLives,
 }) => {
   return (
-    <div>
+    <div className="header">
       <div>Level = {currentLevel}</div>
       <div>Score = {currentScore}</div>
       <div>Best Score = {bestScore}</div>

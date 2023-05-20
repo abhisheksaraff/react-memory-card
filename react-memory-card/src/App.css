@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.cards{
+    margin: 20px;
+}

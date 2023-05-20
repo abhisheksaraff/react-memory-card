@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -25,6 +26,7 @@ const App = () => {
   const incrementLevel = () => {
     refreshCards(currentLevel + 1);
     setLevel(currentLevel + 1);
+    setShowAlert(false);
   };
 
   const updateBestScore = () => {
@@ -84,7 +86,7 @@ const App = () => {
     //clears screen while loading new cards
     setCurrentCards([]);
 
-    for (let i = 0; i < size*2; i++) {
+    for (let i = 0; i < size * 2; i++) {
       try {
         let response = await fetch("https://picsum.photos/300/");
         let picture = await response.url;
@@ -114,24 +116,26 @@ const App = () => {
   });
 
   return (
-    <div>
-      <Header
-        currentScore={currentScore}
-        currentLevel={currentLevel}
-        bestScore={bestScore}
-        codeIsActivated={codeIsActivated}
-        totalLives={totalLives}
-      />
-      <Body
-        currentCards={currentCards}
-        setCurrentCards={setCurrentCards}
-        incrementCurrentScore={incrementCurrentScore}
-        incrementLevel={incrementLevel}
-        madeAMistake={madeAMistake}
-        showAlert={showAlert}
-        setShowAlert={setShowAlert}
-        codeIsActivated={codeIsActivated}
-      />
+    <div className="app">
+      <div className="top">
+        <Header
+          currentScore={currentScore}
+          currentLevel={currentLevel}
+          bestScore={bestScore}
+          codeIsActivated={codeIsActivated}
+          totalLives={totalLives}
+        />
+        <Body
+          currentCards={currentCards}
+          setCurrentCards={setCurrentCards}
+          incrementCurrentScore={incrementCurrentScore}
+          incrementLevel={incrementLevel}
+          madeAMistake={madeAMistake}
+          showAlert={showAlert}
+          setShowAlert={setShowAlert}
+          codeIsActivated={codeIsActivated}
+        />
+      </div>
       <Footer />
     </div>
   );
