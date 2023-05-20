@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -11,6 +12,7 @@ const App = () => {
   const [currentLevel, setLevel] = useState(1);
   const [currentCards, setCurrentCards] = useState([]);
   const [totalLives, setTotalLives] = useState(1);
+  const [showAlert, setShowAlert] = useState(false);
 
   const [keyUpCount, setKeyUpCount] = useState(0);
   const [codeIsActivated, setCodeIsActivated] = useState(false);
@@ -31,13 +33,13 @@ const App = () => {
 
   const madeAMistake = () => {
     if (totalLives === 1) {
-      initializeGame();
+      restartGame();
     } else {
       setTotalLives(totalLives - 1);
     }
   };
 
-  const initializeGame = () => {
+  const restartGame = () => {
     console.log(`You Lost at Score: ${currentScore}`);
 
     //set current Score to 0, set Level to 1, set current Cards to Level 1, deactivate code, set lives to 1
@@ -46,6 +48,7 @@ const App = () => {
     refreshCards(1);
     setCodeIsActivated(false);
     setTotalLives(1);
+    setShowAlert(true);
   };
 
   const incrementTotalLives = () => {
@@ -83,8 +86,9 @@ const App = () => {
 
     for (let i = 0; i < size*2; i++) {
       try {
-        let response = await fetch("https://picsum.photos/100/");
+        let response = await fetch("https://picsum.photos/300/");
         let picture = await response.url;
+        console.log(await response);
         tempCards.push({
           picture: picture,
           name: i + "",
@@ -124,6 +128,9 @@ const App = () => {
         incrementCurrentScore={incrementCurrentScore}
         incrementLevel={incrementLevel}
         madeAMistake={madeAMistake}
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
+        codeIsActivated={codeIsActivated}
       />
       <Footer />
     </div>

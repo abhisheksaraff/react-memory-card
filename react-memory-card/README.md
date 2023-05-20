@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To run this project
+npm install react-bootstrap bootstrap
+npm i mdb-react-ui-kit
+npm i --save @fortawesome/react-fontawesome
+
 ## Available Scripts
 
 In the project directory, you can run:

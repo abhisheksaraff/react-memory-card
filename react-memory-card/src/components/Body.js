@@ -1,6 +1,7 @@
-import React from "react";
+import CardGroup from "react-bootstrap/CardGroup";
+import Alert from "react-bootstrap/Alert";
 
-import Card from "./Card";
+import Cards from "./Cards";
 
 const Body = ({
   currentCards,
@@ -8,7 +9,11 @@ const Body = ({
   incrementCurrentScore,
   incrementLevel,
   madeAMistake,
+  showAlert,
+  setShowAlert,
+  codeIsActivated,
 }) => {
+
   const shuffle = (cards) => {
     //shuffle currentCards
     let newOrder = [],
@@ -71,22 +76,29 @@ const Body = ({
   };
 
   return (
-    <>
-      <ul>
+    <div className="body">
+      {showAlert && <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
+        <Alert.Heading>Oh snap... You lost!</Alert.Heading>
+        <p>
+          Try again.
+        </p>
+      </Alert>}
+      <CardGroup>
         {currentCards.map((card) => {
           return (
-            <li key={card.name}>
-              <Card
+            <div key={card.name}>
+              <Cards
                 picture={card.picture}
                 name={card.name}
                 hasBeenSelected={card.hasBeenSelected}
                 updateHasBeenClicked={updateHasBeenClicked}
+                codeIsActivated={codeIsActivated}
               />
-            </li>
+            </div>
           );
         })}
-      </ul>
-    </>
+      </CardGroup>
+    </div>
   );
 };
 
