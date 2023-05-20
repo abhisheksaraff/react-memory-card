@@ -21,7 +21,7 @@ const App = () => {
   };
 
   const incrementLevel = () => {
-    dataGenerator(currentLevel + 1);
+    updateCardDeck(currentLevel + 1);
     setLevel(currentLevel + 1);
   };
 
@@ -43,7 +43,7 @@ const App = () => {
     //set current Score to 0, set Level to 1, set current Cards to Level 1, deactivate code, set lives to 1
     setCurrentScore(0);
     setLevel(1);
-    setCurrentCards(dataGenerator(1));
+    updateCardDeck(1);
     setCodeIsActivated(false);
     setTotalLives(1);
   };
@@ -75,7 +75,7 @@ const App = () => {
     }
   };
 
-  const dataGenerator = async (size) => {
+  const updateCardDeck = async (size) => {
     let tempCards = [];
     for (let i = 0; i <= size; i++) {
       try {
@@ -90,11 +90,11 @@ const App = () => {
         console.error(e.message);
       }
     }
-  setCurrentCards(tempCards);
+    setCurrentCards(tempCards);
   };
 
   useEffect(() => {
-    dataGenerator(1);
+    updateCardDeck(1);
   }, []);
 
   useEffect(() => {
@@ -127,13 +127,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-      <Body
-        currentCards={currentCards}
-        setCurrentCards={setCurrentCards}
-        incrementCurrentScore={incrementCurrentScore}
-        incrementLevel={incrementLevel}
-        madeAMistake={madeAMistake}
-      />
-*/

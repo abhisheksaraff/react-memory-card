@@ -73,7 +73,7 @@ const Body = ({
   return (
     <>
       <ul>
-        {(currentCards !== undefined) && currentCards.map((card) => {
+        {currentCards.map((card) => {
           return (
             <li key={card.name}>
               <Card
