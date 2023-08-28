@@ -1,6 +1,10 @@
 # Check it out here
 
-https://saraffabhishek.github.io/react-memory-card/
+https://abhisheksaraff.github.io/react-memory-card/
+
+## Need Help
+
+Try pressing ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️🅱️🅰️
 
 ## Getting Started with Create React App
 
