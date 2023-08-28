@@ -13,25 +13,14 @@ const Footer = () => {
     <MDBFooter className="footer bg-dark text-center text-white">
       <MDBContainer className="p-4 pb-0">
         <section className="mb-4">
+    
           <MDBBtn
             outline
             color="light"
             floating
             className="m-1"
             target="blank"
-            href="https://www.twitter.com/"
-            role="button"
-          >
-            <MDBIcon fab icon="twitter" />
-          </MDBBtn>
-
-          <MDBBtn
-            outline
-            color="light"
-            floating
-            className="m-1"
-            target="blank"
-            href="https://www.linkedin.com/"
+            href="http://linkedin.com/in/abhisheksaraff/"
             role="button"
           >
             <MDBIcon fab icon="linkedin-in" />
@@ -43,7 +32,7 @@ const Footer = () => {
             floating
             className="m-1"
             target="blank"
-            href="https://github.com/saraffabhishek/memory-card"
+            href="https://github.com/abhisheksaraff/memory-card"
             role="button"
           >
             <MDBIcon fab icon="github" />
