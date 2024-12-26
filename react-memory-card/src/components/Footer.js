@@ -44,7 +44,7 @@ const Footer = () => {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © 2023 Copyright {" "}
+        © 2025 Copyright {" "}
         <a target="blank" className="text-white" href="https://www.theodinproject.com/">
           The Odin Project
         </a>
